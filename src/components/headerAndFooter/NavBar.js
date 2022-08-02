@@ -53,13 +53,16 @@ const NavBar = () => {
   const navLink = [
     { title: "Adopt Pets", path: "/adopt_pets" },
     {
-      title: "Pets Problem s & Solutions",
-      path: "/Pets Problem s & Solutions",
+      title: "Pets Problems & Solutions",
+      path: "/pets_problems_and_solutions",
     },
-    { title: "Nearest Vetneries", path: "/pets_problems_and_solutions" },
+    { title: "Nearest Vetnaries", path: "/nearest_vetnaries" },
     { title: "Lost & Found Pets", path: "/lost_found_pets" },
   ];
 
+
+
+  // console.log(process.env)
   return (
     <>
       <div className="rounded-md sticky top-0     z-30  ">

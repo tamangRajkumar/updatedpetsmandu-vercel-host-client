@@ -1,15 +1,9 @@
 import React, { useState } from "react";
 // import contactUs from "../contactUs";
-import {
-  ViewListIcon,
-  SearchIcon,
-  HomeIcon,
-  UserCircleIcon,
-  MenuIcon,
-} from "@heroicons/react/solid";
 
 import { Route, Switch, Link } from "react-router-dom";
 
+import axios from "axios";
 // import Nav Bar Component
 import NavBar from "../components/headerAndFooter/NavBar";
 
@@ -61,6 +55,9 @@ function App() {
     (state) => state.authUser.isAuthenticated
   );
   console.log(isAuthenticated);
+
+  axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+
   return (
     <>
       <NavBar />
@@ -103,7 +100,9 @@ function App() {
             <Route path="/favorite-posts-list" component={FavoritePostsList} />
           ) : (
             <div>
-              <p className="text-2xl my-[35vh]  text-center font-bold">Request Error......</p>
+              <p className="text-2xl my-[35vh]  text-center font-bold">
+                Request Error......
+              </p>
             </div>
           )}
         </Switch>
