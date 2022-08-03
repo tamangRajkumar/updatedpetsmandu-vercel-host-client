@@ -9,4 +9,5 @@ export default combineReducers({
   postEditModalPreData: postEditModalPreData,
   updateUserProfile: updateUserProfile,
   userFavoritePostsList: userFavoritePostsList,
-});
+},
+);

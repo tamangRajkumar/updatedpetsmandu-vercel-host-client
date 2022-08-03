@@ -194,11 +194,20 @@ const SinglePostView = () => {
                       >
                         <div className="flex items-center mt-4">
                           <div>
+                          {commentData.postedBy.image.url?
                             <img
                               src={commentData.postedBy.image.url}
                               className="h-14 w-14 rounded-full"
                               alt=""
                             />
+                            :
+                            <img
+                              src={Avatar}
+                              className="h-14 w-14 rounded-full"
+                              alt=""
+                            />
+                            }
+                            
                           </div>
                           <div className="pl-2">
                             <div className="flex ">
