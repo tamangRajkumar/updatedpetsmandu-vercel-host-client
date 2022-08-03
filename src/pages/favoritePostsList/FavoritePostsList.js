@@ -9,7 +9,7 @@ const FavoritePostsList = () => {
 
   return (
     <div className="mt-10 ">
-      {favoritePosts.length > 0 ? (
+      {favoritePosts && favoritePosts.length > 0 ? (
         <p className="text-2xl font-bold text-center ">
           {" "}
           <p className="text-2xl font-bold text-center ">Your Favorite Posts</p>
