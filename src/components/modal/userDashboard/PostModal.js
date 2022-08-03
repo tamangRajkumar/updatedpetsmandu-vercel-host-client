@@ -37,7 +37,7 @@ const PostModal = ({
     image: {},
   });
 
-  console.log(postSubmitData);
+  // console.log(postSubmitData);
 
   // useEffect( () => {
   //   if (postEditModalDataFound)  preLoadPost();

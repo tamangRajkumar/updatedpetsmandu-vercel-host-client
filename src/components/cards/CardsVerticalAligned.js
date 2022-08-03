@@ -34,7 +34,7 @@ const CardsVerticalAligned = ({
   // const userId = useSelector((state) => state.authUser.currentUser.user._id);
   // console.log(userId);
 
-  console.log(isFavoritePost);
+  // console.log(isFavoritePost);
   const handleHeartIconTrue = () => {
     if (userId) {
       setHeartIconClick(true);

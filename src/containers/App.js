@@ -54,7 +54,7 @@ function App() {
   const isAuthenticated = useSelector(
     (state) => state.authUser.isAuthenticated
   );
-  console.log(isAuthenticated);
+  // console.log(isAuthenticated);
 
   axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 

@@ -32,7 +32,7 @@ const NearestVetneries = () => {
   // console.log(favoritePosts);
 
   const token = useSelector((state) => state.authUser.currentUser.token);
-  console.log(token);
+  // console.log(token);
 
   return (
     <>

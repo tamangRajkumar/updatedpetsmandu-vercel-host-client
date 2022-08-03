@@ -37,7 +37,7 @@ const SinglePostView = () => {
   const userImageUrl = useSelector(
     (state) => state.updateUserProfile.userProfileData.url
   );
-  console.log(userImageUrl);
+  // console.log(userImageUrl);
 
   useEffect(() => {
     fetchPosts();

@@ -17,7 +17,7 @@ function LogIn() {
     history.push("/");
   }
 
-  console.log(authUser);
+  // console.log(authUser);
 
   const [userLogInData, setUserLogInData] = useState({
     email: "",

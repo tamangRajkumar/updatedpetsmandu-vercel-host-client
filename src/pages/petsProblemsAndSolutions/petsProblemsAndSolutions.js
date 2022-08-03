@@ -21,7 +21,7 @@ const PetsProblemsAndSolutions = () => {
       let category = "pets_problems_and_solutions";
       const { data } = await fetchPostsByCategory(category);
       setPosts(data.posts);
-      console.log(data);
+      // console.log(data);
     } catch (error) {
       console.log("Error => ", error);
     }
@@ -34,7 +34,7 @@ const PetsProblemsAndSolutions = () => {
   // console.log(favoritePosts);
 
   const token = useSelector((state) => state.authUser.currentUser.token);
-  console.log(token);
+  // console.log(token);
 
   return (
     <>

@@ -25,10 +25,7 @@ export const signUpUser = (signUpData, history) => async (dispatch) => {
 //Log In User
 export const logInUser = (userLogInData, history) => async (dispatch) => {
   try {
-    const { data } = await axios.post(
-      "http://localhost:9000/api/login",
-      userLogInData
-    );
+    const { data } = await api.userLogIn(userLogInData);
     if (data) {
       dispatch({
         type: LOGIN,

@@ -38,7 +38,7 @@ const UserDashboard = () => {
   // console.log(postEditModalData);
 
   // console.log(token);
-  console.log(user);
+  // console.log(user);
   // console.log(user.email);
 
   const history = useHistory();

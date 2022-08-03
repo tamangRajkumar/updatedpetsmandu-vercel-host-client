@@ -21,7 +21,7 @@ const LostAndFoundPets = () => {
       const category = "lost_and_found";
       const { data } = await fetchPostsByCategory(category);
       setPosts(data.posts);
-      console.log(data);
+      // console.log(data);
     } catch (error) {
       console.log("Error => ", error);
     }
@@ -35,7 +35,7 @@ const LostAndFoundPets = () => {
   // console.log(favoritePosts);
 
   const token = useSelector((state) => state.authUser.currentUser.token);
-  console.log(token);
+  // console.log(token);
 
   return (
     <>
