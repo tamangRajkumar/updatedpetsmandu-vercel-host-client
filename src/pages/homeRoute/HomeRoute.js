@@ -4,20 +4,15 @@ import allPetsLists from "../../components/AllPetsLists/allPetsList";
 import Cards from "../../components/cards/Cards";
 import { petsGroupImg, puppyGroupImg } from "../../assets/images";
 import { fetchPostsByCategory } from "../../api";
+import Skeleton from "react-loading-skeleton";
 
-import {
-  ChevronDoubleLeftIcon,
-  ChevronDoubleRightIcon,
-  ChevronRightIcon,
-  HeartIcon,
-  apptarIcon,
-} from "@heroicons/react/solid";
 // import ourFeatured from "../ourFeatured";
 import { useHistory } from "react-router-dom";
 
 import { Link, Redirect } from "react-router-dom";
 import SliderCarousel from "../../components/sliderCarousel/SliderCarousel";
 import { useSelector } from "react-redux";
+import CardSkeleton from "../../components/cardSkeleton/CardSkeleton";
 
 function HomeRoute() {
   const history = useHistory();
@@ -36,12 +31,16 @@ function HomeRoute() {
   // const [petsProblemsAndSolutions, setPetsProblemsAndSolutions] = useState();
   const [nearestVetneriesPetsPosts, setNearestVetneriesPetsPosts] = useState();
   const [lostAndFoundPetsPosts, setLostAndFoundPetsPosts] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
+
     fetchAdoptPetsPosts("adopt_pets");
-    // fetchPetsProblemsAndSolutions("pets_problems_and_solutions");
     fetchNearestVetneriesPosts("nearest_vetneries");
     fetchLostAndFoundPetsPosts("lost_and_found");
+
+    // fetchPetsProblemsAndSolutions("pets_problems_and_solutions");
 
     // fetchLostAndFoundPetsPosts();
   }, []);
@@ -56,6 +55,7 @@ function HomeRoute() {
 
       // setPosts(data);
       setAdoptPetsPosts(data.posts);
+      data && setIsLoading(false);
     } catch (error) {
       console.log("Error => ", error);
     }
@@ -82,6 +82,7 @@ function HomeRoute() {
 
       // setPosts(data);
       setNearestVetneriesPetsPosts(data.posts);
+      data && setIsLoading(false);
     } catch (error) {
       console.log("Error => ", error);
     }
@@ -95,6 +96,7 @@ function HomeRoute() {
 
       // setPosts(data);
       setLostAndFoundPetsPosts(data.posts);
+      data && setIsLoading(false);
     } catch (error) {
       console.log("Error => ", error);
     }
@@ -142,25 +144,42 @@ function HomeRoute() {
 
       {/* Featured Posts */}
       <div>
-        <SliderCarousel
-          title={"Our Featured Posts"}
-          autoplay={true}
-          autoplaySpeed={6000}
-          pauseOnHover={true}
-          handlePostRouteIndividual={handlePostRouteIndividual}
-          posts={adoptPetsPosts}
-        />
+        {isLoading ? (
+          <>
+            <div className="grid md:grid-cols-3 lg:grid-cols-4">
+              <CardSkeleton homeRoute={true} cards={4} />
+            </div>
+          </>
+        ) : (
+          adoptPetsPosts && (
+            <SliderCarousel
+              title={"Our Featured Posts"}
+              autoplay={true}
+              autoplaySpeed={6000}
+              pauseOnHover={true}
+              handlePostRouteIndividual={handlePostRouteIndividual}
+              posts={adoptPetsPosts}
+            />
+          )
+        )}
       </div>
 
       {/* Adopt Pets */}
-      {adoptPetsPosts && (
-        <div>
-          <SliderCarousel
-            title={"Adop Pets"}
-            handlePostRouteIndividual={handlePostRouteIndividual}
-            posts={adoptPetsPosts}
-          />
+
+      {isLoading ? (
+        <div className="grid md:grid-cols-3 lg:grid-cols-4">
+          <CardSkeleton homeRoute={true} cards={4} />
         </div>
+      ) : (
+        adoptPetsPosts && (
+          <div>
+            <SliderCarousel
+              title={"Adop Pets"}
+              handlePostRouteIndividual={handlePostRouteIndividual}
+              posts={adoptPetsPosts}
+            />
+          </div>
+        )
       )}
 
       {/* About petsMandu */}
@@ -185,26 +204,39 @@ function HomeRoute() {
       </div>
 
       {/* Lost and found pets */}
-      {lostAndFoundPetsPosts && (
-        <div>
-          <SliderCarousel
-            title={"Lost and Found Pets"}
-            handlePostRouteIndividual={handlePostRouteIndividual}
-            posts={nearestVetneriesPetsPosts}
-          />
+
+      {isLoading ? (
+        <div className="grid md:grid-cols-3 lg:grid-cols-4">
+          <CardSkeleton homeRoute={true} cards={4} />
         </div>
+      ) : (
+        lostAndFoundPetsPosts && (
+          <div>
+            <SliderCarousel
+              title={"Lost and Found Pets"}
+              handlePostRouteIndividual={handlePostRouteIndividual}
+              posts={nearestVetneriesPetsPosts}
+            />
+          </div>
+        )
       )}
 
       {/* Find Vetneries */}
 
-      {nearestVetneriesPetsPosts && (
-        <div>
-          <SliderCarousel
-            title={"Find Vetneries"}
-            handlePostRouteIndividual={handlePostRouteIndividual}
-            posts={nearestVetneriesPetsPosts}
-          />
+      {isLoading ? (
+        <div className="grid md:grid-cols-3 lg:grid-cols-4">
+          <CardSkeleton homeRoute={true} cards={4} />
         </div>
+      ) : (
+        nearestVetneriesPetsPosts && (
+          <div>
+            <SliderCarousel
+              title={"Find Vetneries"}
+              handlePostRouteIndividual={handlePostRouteIndividual}
+              posts={nearestVetneriesPetsPosts}
+            />
+          </div>
+        )
       )}
 
       {/*      

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CardsVerticalAligned from "../../components/cards/CardsVerticalAligned";
 
 const FavoritePostsList = () => {
@@ -6,6 +6,8 @@ const FavoritePostsList = () => {
     window.localStorage.getItem("favoritePostsList")
   );
   // console.log(favoritePosts[0]);
+  const [isLoading, setIsLoading] = useState(false);
+
 
   return (
     <div className="mt-10 ">

@@ -11,6 +11,8 @@ import "slick-carousel/slick/slick-theme.css";
 // React Tostify
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 // import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
@@ -18,8 +20,10 @@ import store from "./redux/store";
 const app = (
   <BrowserRouter>
     <Provider store={store}>
-      <App />
-      <ToastContainer position="bottom-right" />
+      <SkeletonTheme baseColor="	#F0F0F0" highlightColor="	#E0E0E0">
+        <App />
+        <ToastContainer position="bottom-right" />
+      </SkeletonTheme>
     </Provider>
   </BrowserRouter>
 );

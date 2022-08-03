@@ -4,15 +4,18 @@ import allPetsLists from "../../components/AllPetsLists/allPetsList";
 import Cards from "../../components/cards/CardsVerticalAligned";
 import { fetchPostsByCategory } from "../../api";
 import { useSelector } from "react-redux";
+import CardSkeleton from "../../components/cardSkeleton/CardSkeleton";
 
 function AdoptPets() {
   const [posts, setPosts] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const userId = useSelector((state) => state.authUser.currentUser.user._id);
 
   useEffect(() => {
     if (posts == null) {
       fetchPosts();
+      setIsLoading(true);
     }
   }, [posts == null]);
 
@@ -21,6 +24,7 @@ function AdoptPets() {
       const category = "adopt_pets";
       const { data } = await fetchPostsByCategory(category);
       setPosts(data.posts);
+      data && setIsLoading(false);
       // console.log(data);/
     } catch (error) {
       console.log("Error => ", error);
@@ -78,33 +82,40 @@ function AdoptPets() {
                 );
               })}
           </div> */}
-          <div className="flex flex-wrap justify-center">
-            {posts &&
-              posts.map((post) => {
-                return (
-                  <>
-                    <div key={post._id} className="flex">
-                      <Cards
-                        description={post.description}
-                        image={post.image.url}
-                        address={post.address}
-                        title={post.title}
-                        post={post}
-                        userId={userId}
-                        token={token}
-                        fetchPosts={fetchPosts}
-                        isFavoritePost={
-                          favoritePosts &&
-                          favoritePosts.some(
-                            (favPost) => favPost["_id"] === post._id
-                          )
-                        }
-                      />
-                    </div>
-                  </>
-                );
-              })}
-          </div>
+
+          {isLoading ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-2" >
+              <CardSkeleton mx-10 cards={4} />
+            </div>
+          ) : (
+            <div className="flex flex-wrap justify-center">
+              {posts &&
+                posts.map((post) => {
+                  return (
+                    <>
+                      <div key={post._id} className="flex">
+                        <Cards
+                          description={post.description}
+                          image={post.image.url}
+                          address={post.address}
+                          title={post.title}
+                          post={post}
+                          userId={userId}
+                          token={token}
+                          fetchPosts={fetchPosts}
+                          isFavoritePost={
+                            favoritePosts &&
+                            favoritePosts.some(
+                              (favPost) => favPost["_id"] === post._id
+                            )
+                          }
+                        />
+                      </div>
+                    </>
+                  );
+                })}
+            </div>
+          )}
         </div>
       </div>
     </>

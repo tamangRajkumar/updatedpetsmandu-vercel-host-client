@@ -2,6 +2,7 @@ import React, { Component, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import allPets from "../AllPetsLists/allPetsList";
 import sliderCss from "./sliderCss.css";
+import Skeleton from 'react-loading-skeleton'
 
 import {
   ArrowCircleRightIcon,
@@ -66,6 +67,9 @@ const SliderCarousel = ({
     // console.log("called")
     // adoptPetsPosts && console.log(adoptPetsPosts)
 
+
+
+
     return (
       <>
         <div className="mt-12 md:mt-20 lg:mt-20">
@@ -112,8 +116,8 @@ const SliderCarousel = ({
                           <p className="text-center mt-2 px-3 ">
                             {" "}
                             {post.description.length > 25
-                              ? post.description.substring(0, 29) + "..."
-                              : post.description}
+                              ? post.description.substring(0, 29) + "..." || <Skeleton/>
+                              : post.description }
                           </p>
                         </div>
 
