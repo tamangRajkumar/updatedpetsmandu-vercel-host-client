@@ -93,7 +93,7 @@ function AdoptPets() {
                 posts.map((post) => {
                   return (
                     <>
-                      <div key={post._id} className="flex  bg-red-500 ">
+                      <div key={post._id} className="flex  ">
                         <Cards
                           description={post.description}
                           image={post.image.url}
