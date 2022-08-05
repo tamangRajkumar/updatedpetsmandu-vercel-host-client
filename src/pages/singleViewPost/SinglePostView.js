@@ -108,8 +108,8 @@ const SinglePostView = () => {
   return (
     <>
       {post && (
-        <div className="flex md:flex lg:flex mt-12 mx-20 ">
-          <div className="sticky top-32 mt-10 flex-none h-[90vh] w-96 bg-gray-50 p-5 rounded-lg">
+        <div className="lg:flex justify-center  mt-12 mx-20 ">
+          <div className=" lg:sticky m-10  mx-auto top-32 mt-10 flex-none h-full w-96 bg-gray-50 p-5 rounded-lg">
             <img src={post.image.url} alt="" className="object-contain w-96" />
             {/* <div className="flex justify-between mx-3">
               <p>Views</p>

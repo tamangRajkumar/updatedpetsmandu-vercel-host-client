@@ -84,16 +84,16 @@ function AdoptPets() {
           </div> */}
 
           {isLoading ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-2" >
+            <div className="grid md:grid-cols-2 lg:grid-cols-2">
               <CardSkeleton mx-10 cards={4} />
             </div>
           ) : (
-            <div className="flex flex-wrap justify-center">
+            <div className="flex  flex-wrap justify-center">
               {posts &&
                 posts.map((post) => {
                   return (
                     <>
-                      <div key={post._id} className="flex">
+                      <div key={post._id} className="flex  bg-red-500 ">
                         <Cards
                           description={post.description}
                           image={post.image.url}
