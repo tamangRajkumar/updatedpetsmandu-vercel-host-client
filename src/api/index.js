@@ -134,6 +134,6 @@ export const addFavoritePost = (post, token) => {
 };
 
 // fetch search data
-export const fetchUserSearchRequest = (searchInput) => {
-  return axios.post(`/api/user-search-request`, { searchInput });
+export const fetchUserSearchRequest = (query) => {
+  return axios.get(`/api/user-search-request/${query}`);
 };

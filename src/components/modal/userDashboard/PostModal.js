@@ -168,7 +168,7 @@ const PostModal = ({
             <div className="mt-2 text-xl font-semibold ">Post</div>
           )}
 
-          <div className="">
+          <div >
             <button
               onClick={() => handlePostModal(false)}
               className="focus:outline-none"

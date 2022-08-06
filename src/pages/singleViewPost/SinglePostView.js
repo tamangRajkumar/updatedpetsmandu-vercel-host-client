@@ -23,7 +23,7 @@ const SinglePostView = () => {
   const [addComment, setAddComment] = useState("");
   // console.log(addComment);
 
-  const [fetchedComments, setFetchedComments] = useState();
+  // const [fetchedComments, setFetchedComments] = useState();
   // fetchedComments && console.log(fetchedComments);
 
   const [postCommentsData, setPostCommentsData] = useState();

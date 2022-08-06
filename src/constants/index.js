@@ -1,3 +1,3 @@
 import { navLinks } from "./data";
 
-export { navLinks };
+export { navLinks  };

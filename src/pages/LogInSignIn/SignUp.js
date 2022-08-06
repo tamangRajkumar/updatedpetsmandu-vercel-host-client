@@ -51,12 +51,12 @@ const SignUp = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <div className="flex justify-around items-center mt-20">
+        <div className="md:flex lg:flex justify-around items-center mt-20">
           <div className="flex justify-center items-center">
             <img className="rounded-3xl " src={signUpLogiInCoverImage} alt="" />
           </div>
 
-          <div className=" flex flex-col items-center justify-center text-center  ">
+          <div className=" flex flex-col my-5 md:my-0 lg:my-0 items-center justify-center text-center  ">
             <h1 className="font-bold text-3xl">Sign Up</h1>
 
             <>

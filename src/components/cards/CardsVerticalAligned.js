@@ -10,9 +10,6 @@ import {
 } from "../../redux/actions/favoritePostsList";
 import { toast } from "react-toastify";
 
-
-
-
 const CardsVerticalAligned = ({
   post,
   description,
@@ -57,7 +54,7 @@ const CardsVerticalAligned = ({
     dispatch(removeFavoritePostsList(post._id));
     !favoritePostsPostRoute && fetchPosts();
     toast.success("Post is removed from favorite list successfully ");
-    if (favoritePostsPostRoute) history.push("/favorite-posts-list")
+    if (favoritePostsPostRoute) history.push("/favorite-posts-list");
   };
 
   const handleViewPostRoute = () => {
