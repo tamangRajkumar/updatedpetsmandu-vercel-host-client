@@ -7,31 +7,21 @@ export const signUpUser = (signUpData) => {
 
 //User Log In
 export const userLogIn = (userLogInData) => {
-  return axios.post(
-    `/api/login`,
-    userLogInData
-  );
+  return axios.post(`/api/login`, userLogInData);
 };
 
 // Image Upload in Clodinary and gets Public key and Image Url form cloudinary
 export const uploadImage = (formData) => {
-  return axios.post(
-    `/api/upload-image`,
-    formData
-  );
+  return axios.post(`/api/upload-image`, formData);
 };
 
 // Post Submit
 export const postSubmit = (postSubmitData, token) => {
-  return axios.post(
-    `/api/create-post`,
-    postSubmitData,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
+  return axios.post(`/api/create-post`, postSubmitData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 };
 
 // fetch Posts
@@ -45,36 +35,27 @@ export const fetchPosts = (token) => {
 
 // Delete Post
 export const deletePost = (postId, token) => {
-  return axios.delete(
-    `/api/delete-post/${postId}`,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
+  return axios.delete(`/api/delete-post/${postId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 };
 
 // Fetch Adopt Pets Posts
 export const fetchPostsByCategory = (category) => {
-  return axios.post(
-    `/api/fetchpostsbycategory`,
-    {
-      category,
-    }
-  );
+  return axios.post(`/api/fetchpostsbycategory`, {
+    category,
+  });
 };
 
 //Get individual post
 export const fetchIndividualPost = (postId, token) => {
-  return axios.get(
-    `/api/fetchindividualpost/${postId}`,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
+  return axios.get(`/api/fetchindividualpost/${postId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 };
 
 //fetch post to edit in Modal
@@ -86,23 +67,16 @@ export const fetchPostToEdit = (postId) => {
 
 // Update post
 export const updatePost = (postSubmitData, postId) => {
-  return axios.put(
-    `/api/updatepost/${postId}`,
-    postSubmitData
-  );
+  return axios.put(`/api/updatepost/${postId}`, postSubmitData);
 };
 
 // Update User Profile
 export const updateUserProfile = (postSubmitData, token) => {
-  return axios.put(
-    `/api/update-user-profile`,
-    postSubmitData,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
+  return axios.put(`/api/update-user-profile`, postSubmitData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 };
 
 // Handle comments in the post
@@ -157,4 +131,9 @@ export const addFavoritePost = (post, token) => {
       },
     }
   );
+};
+
+// fetch search data
+export const fetchUserSearchRequest = (searchInput) => {
+  return axios.post(`/api/user-search-request`, { searchInput });
 };

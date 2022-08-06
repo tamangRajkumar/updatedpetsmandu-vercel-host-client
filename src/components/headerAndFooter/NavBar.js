@@ -17,9 +17,13 @@ import DropDownModal from "../modal/dropDownModal/DropDownModal";
 
 import NavbarPostModal from "./NavbarPostModal";
 import { toast } from "react-toastify";
+import { navLinks } from "../../constants";
+import { fetchUserSearchRequest } from "../../api";
 
 const NavBar = () => {
   const [menuClicked, setMenuClicked] = useState(false);
+  const [searchInput, setSearchInput] = useState();
+  console.log(searchInput);
   const [searchInputShowHide, setSearchInputShowHide] = useState(false);
   const menuBtnRef = useRef();
   const history = useHistory();
@@ -50,17 +54,10 @@ const NavBar = () => {
     setSearchInputShowHide((prev) => !prev);
   };
 
-  const navLink = [
-    { title: "Adopt Pets", path: "/adopt_pets" },
-    {
-      title: "Pets Problems & Solutions",
-      path: "/pets_problems_and_solutions",
-    },
-    { title: "Nearest Vetnaries", path: "/nearest_vetnaries" },
-    { title: "Lost & Found Pets", path: "/lost_found_pets" },
-  ];
-
-
+  // Search Request Fetch data
+  const fetchSearchRequest = async () => {
+    const data  = await fetchUserSearchRequest(searchInput);
+  };
 
   // console.log(process.env)
   return (
@@ -87,14 +84,14 @@ const NavBar = () => {
           <div>
             {/* All Categories NavLinks */}
             <div className="hidden md:hidden lg:flex flex-wrap justify-center items-center space-x-3 ml-8 py-7 mt-1">
-              {navLink?.map((e, i) => (
+              {navLinks?.map((navLink, i) => (
                 <NavLink
                   className=" rounded-xl py-2 px-3 my-1 font-medium active:bg-black text-base shadow-sm  hover:text-white hover:bg-[#003865] hover:scale-110 hover:shadow-xl duration-150"
-                  to={e?.path}
+                  to={navLink?.path}
                   activeClassName="bg-[#003865] text-white"
                   key={i}
                 >
-                  {e?.title}
+                  {navLink?.title}
                 </NavLink>
               ))}
 
@@ -104,6 +101,7 @@ const NavBar = () => {
             </div>
           </div>
 
+          {/* Search section */}
           <div
             className={
               searchInputShowHide
@@ -111,21 +109,21 @@ const NavBar = () => {
                 : "hidden md:flex flex-1  justify-center items-center  "
             }
           >
-            {/* Search Section */}
-
+            {/* Search Section mobile device*/}
             <div className="flex justify-between items-center py-5 ">
               {searchInputShowHide && (
                 <XIcon
                   onClick={handleSmallScreenSerachIcon}
-                  className="absolute cursor-pointer h-6   w-6 z-50 -right-1 -top-1.5 text-gray-500 rounded-full p-1 shadow-lg"
+                  className="absolute cursor-pointer h-6   w-6 z-50 -right-1 -top-1.5 text-gray-500 rounded-full p-1 shadow-md"
                 />
               )}
-              <div className="transform hover:scale-105 duration-300 hover:shadow rounded-3xl  ">
+              <div className="transform hover:scale-105 duration-300 hover:shadow-sm rounded-3xl  ">
                 {/* Search Icon */}
                 <NavLink to="/all_pets">
                   <SearchIcon
                     onClick={() => {
                       toast.error("Search feature is in progress!");
+                      fetchSearchRequest()
                       setSearchInputShowHide(false);
                     }}
                     class="h-6 w-6 text-gray-500 absolute ml-52 mt-2.5 z-40  "
@@ -135,6 +133,8 @@ const NavBar = () => {
                   className="border border-gray-50 shadow-sm outline-none rounded-3xl  px-10 py-2 "
                   type="text"
                   placeholder="Search "
+                  value={searchInput}
+                  onChange={(e) => setSearchInput(e.target.value)}
                 />
               </div>
             </div>
