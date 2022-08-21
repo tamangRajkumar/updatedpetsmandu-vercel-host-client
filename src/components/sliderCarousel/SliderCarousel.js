@@ -2,7 +2,7 @@ import React, { Component, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import allPets from "../AllPetsLists/allPetsList";
 import sliderCss from "./sliderCss.css";
-import Skeleton from 'react-loading-skeleton'
+import Skeleton from "react-loading-skeleton";
 
 import {
   ArrowCircleRightIcon,
@@ -51,8 +51,8 @@ const SliderCarousel = ({
         {
           breakpoint: 480,
           settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
+            slidesToShow: 2,
+            slidesToScroll: 2,
           },
         },
       ],
@@ -67,19 +67,16 @@ const SliderCarousel = ({
     // console.log("called")
     // adoptPetsPosts && console.log(adoptPetsPosts)
 
-
-
-
     return (
       <>
         <div className="mt-12 md:mt-20 lg:mt-20">
           <div className="flex justify-between items-center ">
             <div>
-              <h1 className="font-bold text-lg ml-20 md:font-bold md:text-xl md:ml-24 lg:font-bold lg:text-4xl lg:ml-36 ">
+              <h1 className="font-bold text-lg ml-8  md:font-bold md:text-xl md:ml-24 lg:font-bold lg:text-4xl lg:ml-36 ">
                 {title}
               </h1>
             </div>
-            <div className="flex space-x-2 absolute right-20 md:right-24 lg:right-32 justify-around items-center  cursor-pointer">
+            <div className="flex space-x-2 absolute right-[10px] md:right-24 lg:right-32 justify-around items-center  cursor-pointer">
               <div onClick={() => sliderRef.current.slickPrev()}>
                 {/* <p className="">Prev</p> */}
                 <ArrowCircleLeftIcon className="h-10 w-10 text-gray-500 hover:text-gray-700 transform hover:scale-105" />
@@ -116,8 +113,10 @@ const SliderCarousel = ({
                           <p className="text-center mt-2 px-3 ">
                             {" "}
                             {post.description.length > 25
-                              ? post.description.substring(0, 29) + "..." || <Skeleton/>
-                              : post.description }
+                              ? post.description.substring(0, 29) + "..." || (
+                                  <Skeleton />
+                                )
+                              : post.description}
                           </p>
                         </div>
 

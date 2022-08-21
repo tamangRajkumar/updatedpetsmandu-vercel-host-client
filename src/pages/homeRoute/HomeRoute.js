@@ -114,17 +114,17 @@ function HomeRoute() {
         <div className="flex   justify-center items-center ">
           {/* <ChevronDoubleLeftIcon className="w-20 h-20 text-gray-500 cursor-pointer"/>    */}
 
-          <div className="   ">
+          <div style={{position:"relative"}} >
             {/* hover:shadow-2xl rounded-3xl */}
 
             {/* Sign to post button */}
             {isAuthenticated ? (
               ""
             ) : (
-              <button className="absolute md:py-1 md:px-3  lg:py-1 lg:px-5 right-[20vh] bottom-[57vh]  md:bottom-[50vh] md:right-[20vh] lg:bottom-[22vh] lg:right-[30vh] animate-spin outline-none   rounded-full bg-blue-300 px-2 pb-1  hover:bg-black transform hover:scale-110  hover:border-gray-700 duration-150">
+              <button style={{position:"absolute", bottom:"30px", right:"40px"}} className="  md:py-1 md:px-3  lg:py-1 lg:right-44 lg:px-5 animate-spin outline-none   rounded-full bg-blue-300 px-2 pb-1  hover:bg-black transform hover:scale-110  hover:border-gray-700 duration-150">
                 <Link
                   to="/signUp"
-                  className="text-sm md:text-base lg:text-xl  text-black font-bold hover:text-gray-200 outline-none"
+                  className="text-sm md:text-base lg:text-xl   text-black font-bold hover:text-gray-200 outline-none"
                 >
                   Sign Up to Post
                 </Link>
@@ -134,7 +134,7 @@ function HomeRoute() {
             <img
               src={petsGroupImg}
               alt=""
-              className="h-40 md:h-56 lg:h-full w-full rounded-3xl "
+              className="h-0 sm:h-40 md:h-56 lg:h-full w-full rounded-3xl "
             />
           </div>
 

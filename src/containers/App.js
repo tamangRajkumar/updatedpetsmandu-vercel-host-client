@@ -2,6 +2,7 @@ import React, { useState } from "react";
 // import contactUs from "../contactUs";
 
 import { Route, Switch, Link } from "react-router-dom";
+import "./index.css";
 
 import axios from "axios";
 // import Nav Bar Component
@@ -105,7 +106,6 @@ function App() {
             </p>
           </div>
         )}
-
       </Switch>
 
       <Footer />
