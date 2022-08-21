@@ -63,7 +63,7 @@ const CardsVerticalAligned = ({
   };
 
   return (
-    <div className=" w-[40vh] h-[30vh] md:w-[90vh] md:h-[50vh]   border border-gray-100 shadow-sm rounded-2xl  my-10 sm:mx-5  py-6  hover:shadow-md transform  duration-150 ">
+    <div className=" w-[40vh]  md:w-[90vh]    border border-gray-100 shadow-sm rounded-2xl  my-10 sm:mx-5  py-6  hover:shadow-md transform  duration-150 ">
       {/* body pets lists */}
 
       <div className="flex mx-5 ">
