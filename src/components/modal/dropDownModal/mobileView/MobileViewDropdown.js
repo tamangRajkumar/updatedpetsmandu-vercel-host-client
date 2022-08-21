@@ -49,10 +49,8 @@ const MobileViewDropdown = ({
         <div
           className={
             !isMobileViewDropdown
-             
-              ? "fixed justify-center items-center w-[60vh] h-[100vh]  bg-gray-600 top-3 z-50 rounded-lg right-[-100%}"
-              : "fixed justify-center items-center w-[60vh] h-[100vh] right-0 bg-gray-600 top-3 z-50 rounded-lg transition ease-in-out duration-1000 delay-300  "
-             
+              ? "fixed justify-center items-center w-[40vh] h-[80vh]  bg-gray-600 top-3 z-50 rounded-lg right-0"
+              : "fixed justify-center items-center w-[40vh] h-[100vh] sm:w-[60vh] sm:h-[100vh] right-0 bg-gray-600 top-0 z-50 rounded-lg transition ease-in-out duration-1000 delay-300  "
           }
         >
           <p className="text-center"></p>
@@ -65,7 +63,7 @@ const MobileViewDropdown = ({
             </button>
           </div>
           {/* All Categories NavLinks */}
-          <div className=" flex  justify-center items-center space-x-3 ml-8 pt-5 pb-10 ">
+          <div className=" flex  justify-center items-center   pt-5 pb-10 ">
             <div>
               {isAuthenticated ? (
                 <NavLink
@@ -91,7 +89,7 @@ const MobileViewDropdown = ({
 
               {navLinks?.map((navLink, i) => (
                 <NavLink
-                  className="flex w-[40vh] justify-center items-center rounded-xl py-2 px-3 my-5 font-medium active:bg-black text-base shadow-sm  hover:text-white hover:bg-[#003865] hover:scale-110 hover:shadow-xl duration-150"
+                  className="flex mx-14 sm:mx-0 justify-center items-center rounded-xl py-2 px-3 my-5 font-medium active:bg-black text-base shadow-sm  hover:text-white hover:bg-[#003865] hover:scale-110 hover:shadow-xl duration-150"
                   to={navLink?.path}
                   activeClassName="bg-[#003865] text-white"
                   key={i}

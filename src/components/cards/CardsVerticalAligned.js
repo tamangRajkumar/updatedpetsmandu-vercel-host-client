@@ -63,13 +63,13 @@ const CardsVerticalAligned = ({
   };
 
   return (
-    <div className="  w-[90vh] border border-gray-100 shadow-sm rounded-2xl  my-10 mx-5  py-6  hover:shadow-md transform  duration-150 ">
+    <div className=" w-[40vh] h-[30vh] md:w-[90vh] md:h-[50vh]   border border-gray-100 shadow-sm rounded-2xl  my-10 sm:mx-5  py-6  hover:shadow-md transform  duration-150 ">
       {/* body pets lists */}
 
       <div className="flex mx-5 ">
-        <div className="ml-4 my-2 mr-2" onClick={handleViewPostRoute}>
+        <div className="sm:ml-4 sm:my-2 mr-2" onClick={handleViewPostRoute}>
           <img
-            className=" h-[35vh] w-[70vh] rounded-xl  cursor-pointer object-cover"
+            className=" h-[25vh] w-[70vh] md:h-[35vh] md:w-[70vh] rounded-xl  cursor-pointer object-cover"
             src={image}
             alt=""
           />
