@@ -112,7 +112,7 @@ const CardsVerticalAligned = ({
             <p className="text-left mt-4 text-gray-500">
               {" "}
               {description.length > 50
-                ? description.substring(0, 50) + "...."
+                ? description.substring(0, 20) + "...."
                 : description}{" "}
             </p>
             <p className="text-left mt-4 text-gray-500"> Address: {address} </p>

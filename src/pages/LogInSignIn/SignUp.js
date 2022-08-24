@@ -6,6 +6,8 @@ import { signUpUser } from "../../redux/actions/authActions";
 import { useDispatch, Selector, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import { signUpLogiInCoverImage } from "../../assets/images";
+import { FcGoogle } from "react-icons/fc";
+import { FaFacebookSquare } from "react-icons/fa";
 
 // Import Image
 
@@ -128,6 +130,17 @@ const SignUp = () => {
               >
                 Sign up
               </button>
+
+              {/* Sign up with google and facebook */}
+              <div className="flex">
+              <p className="text-md">Sign up with</p>
+                <div className="flex ml-2  ">
+                  <FcGoogle className="h-6 w-6 mr-2" />
+                  <FaFacebookSquare className="h-6 w-6 text-blue-700" />
+                </div>
+              </div>
+
+              {/* Alredy signed up */}
               <div className="flex gap-2">
                 <h1 className="text-md">Already Signed up?</h1>{" "}
                 <Link to="/login">

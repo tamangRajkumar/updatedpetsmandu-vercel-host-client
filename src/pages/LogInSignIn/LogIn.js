@@ -5,6 +5,8 @@ import { useHistory, Link } from "react-router-dom";
 import { logInUser } from "../../redux/actions/authActions";
 import { signUpLogiInCoverImage } from "../../assets/images";
 import { toast } from "react-toastify";
+import {FcGoogle} from "react-icons/fc"
+import {FaFacebookSquare} from "react-icons/fa"
 function LogIn() {
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
@@ -45,7 +47,11 @@ function LogIn() {
       <form onSubmit={handleSubmit}>
         <div className="md:flex lg:flex  justify-around items-center mt-20">
           <div className="flex justify-center items-center ">
-            <img className="rounded-3xl  " src={signUpLogiInCoverImage} alt="" />
+            <img
+              className="rounded-3xl  "
+              src={signUpLogiInCoverImage}
+              alt=""
+            />
           </div>
 
           <div className=" flex flex-col items-center justify-center text-center my-5 md:my-0 lg:my-0  ">
@@ -77,6 +83,15 @@ function LogIn() {
             >
               Log In
             </button>
+
+            {/* Sign up with google and facebook */}
+            <div className="flex mt-6">
+              <p className="text-md">Sign up with</p>
+              <div className="flex ml-2  ">
+                <FcGoogle className="h-6 w-6 mr-2" />
+                <FaFacebookSquare className="h-6 w-6 text-blue-700" />
+              </div>
+            </div>
 
             {/* Forgot Password */}
             <div className="flex gap-2 mt-5">
