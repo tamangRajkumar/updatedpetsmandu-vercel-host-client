@@ -85,7 +85,7 @@ function LogIn() {
             </button>
 
             {/* Sign up with google and facebook */}
-            <div className="flex mt-6">
+            <div className="flex  mt-6">
               <p className="text-md">Sign up with</p>
               <div className="flex ml-2  ">
                 <FcGoogle className="h-6 w-6 mr-2" />
