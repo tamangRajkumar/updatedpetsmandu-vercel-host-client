@@ -195,7 +195,7 @@ function HomeRoute() {
           <div>
             <p className="text-3xl font-bold my-5  b "> About petsMandu</p>
             <p className="text-lg font-medium ">
-              petsMandu is an online plateform for those who wants to post lost
+              petsMandu is an online Nepali plateform for those who wants to post lost
               and found pets, find nearest vetnery, and share pets related
               problems and answer other people pets problems
             </p>
